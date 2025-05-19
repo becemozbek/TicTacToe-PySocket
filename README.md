@@ -104,7 +104,7 @@ Kazanmanın Keyfini Çıkarın.
 ```mermaid
 sequenceDiagram
     participant Client1 as İstemci A
-    participant Server as Sunucu
+    participant Server  as Sunucu
     participant Client2 as İstemci B
 
     Client1->>Server: CONNECT
@@ -114,9 +114,8 @@ sequenceDiagram
     Server-->>Client2: ROLE;O
 
     loop Oyun Döngüsü
-        Server-->>Client1: BOARD;XXX;O O;   
-        Server-->>Client2: BOARD;XXX;O O;   
-
+        Server-->>Client1: BOARD;XXX;O O;
+        Server-->>Client2: BOARD;XXX;O O;
         alt Client1 Sırası
             Server-->>Client1: PROMPT;Your turn
             Client1->>Server: 1,2
@@ -126,11 +125,9 @@ sequenceDiagram
         end
     end
 
-    Note over Server: Oyunu bitir ve sonucu yayınla
     Server-->>Client1: RESULT;X wins
     Server-->>Client2: RESULT;X wins
 
-    Note over Client1,Client2: Rematch akışı
     Client1->>Server: REMATCH;REQUEST
     Server-->>Client2: REMATCH;REQUEST
     Client2->>Server: REMATCH;ACCEPT
