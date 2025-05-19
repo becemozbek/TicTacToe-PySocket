@@ -85,12 +85,6 @@ Bu proje, TCP/IP soketleri kullanarak ağ üzerinden iki oyuncunun gerçek zaman
 * **Başarı**: Gerçek zamanlı oyun, chat ve rematch özellikleri beklendiği gibi çalıştı.
 * **Öğrenim**: TCP/IP, threading, GUI entegrasyonu, protokol tasarımı konularında uygulamalı deneyim sağlandı.
 
----
-
-### 7. Proje Arayüzü
-
-![Oyun Arayüzü](screenshot_oyun_ekran.png)
-![Rematch İstek Paneli](screenshot_rematch.png)
 
 ---
 
