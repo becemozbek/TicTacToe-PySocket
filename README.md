@@ -1,4 +1,4 @@
-#Tic Tac Toe – Neon Edition#
+# Tic Tac Toe – Neon Edition
 
 Marmara Üniversitesi Teknoloji Fakültesi “Bilgisayar Ağlarına Giriş” projesi, Büşra Ecem ÖZBEK ve Ahmet Eren BAŞALİ tarafından gerçekleştirilmiştir.
 
@@ -99,5 +99,41 @@ Bu proje, TCP/IP soketleri kullanarak ağ üzerinden iki oyuncunun gerçek zaman
 Tahtada X ve O ile hamlelerinizi yapın.
 
 Kazanmanın Keyfini Çıkarın. 
+
+
+```mermaid
+sequenceDiagram
+    participant Client1 as İstemci A
+    participant Server as Sunucu
+    participant Client2 as İstemci B
+
+    Client1->>Server: CONNECT
+    Server-->>Client1: ROLE;X
+
+    Client2->>Server: CONNECT
+    Server-->>Client2: ROLE;O
+
+    loop Oyun Döngüsü
+        Server-->>Client1: BOARD;XXX;O O;   
+        Server-->>Client2: BOARD;XXX;O O;   
+
+        alt Client1 Sırası
+            Server-->>Client1: PROMPT;Your turn
+            Client1->>Server: 1,2
+        else Client2 Sırası
+            Server-->>Client2: PROMPT;Your turn
+            Client2->>Server: 0,0
+        end
+    end
+
+    Note over Server: Oyunu bitir ve sonucu yayınla
+    Server-->>Client1: RESULT;X wins
+    Server-->>Client2: RESULT;X wins
+
+    Note over Client1,Client2: Rematch akışı
+    Client1->>Server: REMATCH;REQUEST
+    Server-->>Client2: REMATCH;REQUEST
+    Client2->>Server: REMATCH;ACCEPT
+    Server-->>Client1: REMATCH;START
 
 
