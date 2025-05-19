@@ -100,36 +100,37 @@ Tahtada X ve O ile hamlelerinizi yapın.
 
 Kazanmanın Keyfini Çıkarın. 
 
-
+```mermaid
 sequenceDiagram
-    participant Client1 as İstemci A
-    participant Server  as Sunucu
-    participant Client2 as İstemci B
+    participant C1 as İstemci A
+    participant S  as Sunucu
+    participant C2 as İstemci B
 
-    Client1->>Server: CONNECT
-    Server-->>Client1: ROLE;X
+    C1->>S: CONNECT
+    S-->>C1: ROLE:X
 
-    Client2->>Server: CONNECT
-    Server-->>Client2: ROLE;O
+    C2->>S: CONNECT
+    S-->>C2: ROLE:O
 
-    loop Oyun Döngüsü
-        Server-->>Client1: BOARD;XXX;O O;
-        Server-->>Client2: BOARD;XXX;O O;
-        alt Client1 Sırası
-            Server-->>Client1: PROMPT;Your turn
-            Client1->>Server: 1,2
-        else Client2 Sırası
-            Server-->>Client2: PROMPT;Your turn
-            Client2->>Server: 0,0
+    loop Oyun
+        S-->>C1: BOARD
+        S-->>C2: BOARD
+        alt C1 Sırası
+            S-->>C1: PROMPT
+            C1->>S: MOVE
+        else C2 Sırası
+            S-->>C2: PROMPT
+            C2->>S: MOVE
         end
     end
 
-    Server-->>Client1: RESULT;X wins
-    Server-->>Client2: RESULT;X wins
+    S-->>C1: RESULT:X wins
+    S-->>C2: RESULT:X wins
 
-    Client1->>Server: REMATCH;REQUEST
-    Server-->>Client2: REMATCH;REQUEST
-    Client2->>Server: REMATCH;ACCEPT
-    Server-->>Client1: REMATCH;START
+    C1->>S: REMATCH:REQ
+    S-->>C2: REMATCH:REQ
+    C2->>S: REMATCH:ACC
+    S-->>C1: REMATCH:START
+```
 
 
