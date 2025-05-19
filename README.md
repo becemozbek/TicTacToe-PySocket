@@ -91,7 +91,7 @@ Bu proje, TCP/IP soketleri kullanarak ağ üzerinden iki oyuncunun gerçek zaman
 ### 8. Canlı Demo ve Kaynak Kod
 
 * **Canlı Demo**: [http://tic-tac-toe-neon.metricopt.com/](http://tic-tac-toe-neon.metricopt.com/)
-* **GitHub**: [[https://github.com/kullaniciadi/tic-tac-toe-neon](https://github.com/kullaniciadi/tic-tac-toe-neon)]
+* **GitHub**: [https://github.com/becemozbek/TicTacToe-PySocket]
 
 *Proje VM’de Oracle VirtualBox aracılığıyla sunulmuştur. Bridged Adapter kullanılarak ana ağa dahil edilmiş ve iki VM arasında test edilmiştir.*
 
