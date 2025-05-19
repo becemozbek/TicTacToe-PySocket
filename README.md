@@ -101,7 +101,6 @@ Tahtada X ve O ile hamlelerinizi yapın.
 Kazanmanın Keyfini Çıkarın. 
 
 
-```mermaid
 sequenceDiagram
     participant Client1 as İstemci A
     participant Server  as Sunucu
@@ -132,5 +131,5 @@ sequenceDiagram
     Server-->>Client2: REMATCH;REQUEST
     Client2->>Server: REMATCH;ACCEPT
     Server-->>Client1: REMATCH;START
-```
+
 
